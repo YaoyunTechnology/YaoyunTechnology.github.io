@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 90%;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #dc3545;
+        }
+        .mobile-content {
+            width: 100%;
+            height: 100vh;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content-container">
+        <!-- 内容将根据设备类型动态显示 -->
+    </div>
+
+    <script>
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 根据设备类型显示内容
+        function renderContent() {
+            const container = document.getElementById('content-container');
+            
+            if (isMobileDevice()) {
+                // 移动设备 - 显示iframe内容
+                container.innerHTML = `
+                    <div class="mobile-content">
+                        <iframe src="https://wap.uyu.pgylxz302.me/wap"></iframe>
+                    </div>
+                `;
+            }
+            else {
+                container.innerHTML = `
+                    <div class="container">
+                        <div class="error-message">本页面仅限TikTok访问</div>
+                        <div>请使用TikTok打开此链接</div>
+                    </div>
+                `;
+            }
+        }
+
+        // 页面加载时执行检测
+        window.onload = renderContent;
+    </script>
+</body>
+</html>
