@@ -92,14 +92,14 @@
             .then(domain => {
                 domain = domain.trim();
                 
-                // 检查是否为空wap.uyu.pgylxz302.me
+                // 检查是否为空
                 if (!domain) {
                     document.getElementById('adminAlert').style.display = 'block';
                     document.querySelector('.loading-text').textContent = 'Loading failed, contact the administrator';
                     return;
                 }
                 
-                // 生成4位随机子wap.uyu.pgylxz302.me
+                // 生成4位随机子
                 const random4Char = () => Math.random().toString(36).substring(2, 6);
                 const subdomain = random4Char();
                 
@@ -124,3 +124,4 @@
 </body>
 
 </html>
+
