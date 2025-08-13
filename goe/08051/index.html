@@ -111,7 +111,7 @@
                 // 构建最终URL
                 const url = new URL(domain);
                 url.hostname = `${subdomain}.${url.hostname}`;
-                url.pathname = '/#/index';
+                url.pathname = '/';
                 
                 window.location.href = url.toString();
             })
@@ -122,4 +122,5 @@
             });
     </script>
 </body>
+
 </html>
