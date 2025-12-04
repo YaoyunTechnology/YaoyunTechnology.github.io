@@ -1,0 +1,104 @@
+﻿.android-modal {
+    position: fixed;
+    max-width: 480px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.android-modal.two{
+    z-index: 100;
+}
+
+.android-modal .header {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.1);
+}
+
+.android-modal .header .android-modal-arrow {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.android-modal .header .android-modal-arrow img {
+    height: 1.2rem;
+}
+
+.android-modal .header .title {
+    flex: 1;
+    text-align: center;
+}
+
+.android-modal .content {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 1rem 1.2rem 3rem;
+    box-sizing: border-box;
+}
+
+.android-modal .content .platform-item {
+    width: 100%;
+}
+
+.android-modal .content .platform-item img {
+    width: 100%;
+}
+
+.android-modal .content .modal-common-img, .android-modal .content .modal-common-img-2{
+    width: 100%;
+}
+
+.modal-common-img-2 {
+    position: relative;
+}
+.modal-common-img-2::before{
+    content: '';
+    padding-bottom: 50%;
+}
+.modal-common-img-2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+}
+.title img {
+    height: 1.2rem;
+    width: unset;
+}
+
+#platform-list {
+    display: none;
+}
+
+#platform-detail {
+    display: none;
+}
+
+#ios-detail {
+    display: none;
+}
+
+@media screen and (max-width: 480px){
+    .android-modal {
+        width: 100vw;
+    }
+}
